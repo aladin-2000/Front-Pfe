@@ -1,0 +1,66 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 10px 20px;
+  }
+  
+  .logo img {
+    height: 40px;
+  }
+  
+  .search-bar input {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .user-menu {
+    display: flex;
+    align-items: center;
+  }
+  
+  .menu-button,
+  .logout-button {
+    background: none;
+    border: none;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+  
+  .logout-button {
+    background-color: #f44336;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+  
+  .user-profile img {
+    height: 40px;
+    border-radius: 50%;
+  }
+  
+  .nav-bar {
+    background-color: #1c1c1c;
+    padding: 10px 0;
+  }
+  
+  .nav-bar ul {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-bar li {
+    color: white;
+    cursor: pointer;
+    padding: 10px 20px;
+  }
+  
+  .nav-bar li:hover {
+    background-color: #333;
+  }
+  
