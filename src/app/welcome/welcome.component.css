@@ -1,0 +1,22 @@
+.welcome-container {
+    display: flex;
+    align-items: center;
+    background-color: #f0f0f0; /* Adjust as per the background in the image */
+    padding: 10px;
+  }
+  
+  .user-image {
+    width: 50px; /* Adjust size as necessary */
+    height: 50px; /* Adjust size as necessary */
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .welcome-text {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333; /* Adjust color as necessary */
+    
+
+  }
+  
