@@ -1,0 +1,111 @@
+<div class="table-container">
+    <h3>Liste de portefeuilles dans ce lot</h3>
+    <div class="table-actions">
+      
+    
+    
+   
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th class ="action-btn"></th>
+          <th></th>
+          <th>Goupe Initial</th>
+          <th>Portef. Initial</th>
+          <th>Groupe Final</th>
+          <th>Portef. Final</th>
+          <th>Code du Lot</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="action-btn"><button>
+            <i class="icon icon-arrow-up"></i>
+          </button></td>
+          <td>1</td>
+          <td>
+            <div class="dropdown-container">
+              <input placeholder="code groupe initiale" type="text" id="dropdown" [formControl]="dropdownControl" (click)="toggleDropdown()" (input)="filterOptions()" (blur)="closeDropdown()">
+              
+              <ul *ngIf="dropdownOpen">
+                <li *ngFor="let option of filteredOptions" (click)="selectOption(option)">
+                  {{ option }}
+                </li>
+              </ul>
+            </div>
+          </td>
+          
+          <td>
+            <div class="dropdown-container">
+              <input placeholder="code groupe initiale" type="text" id="dropdown" [formControl]="dropdownControl" (click)="toggleDropdown()" (input)="filterOptions()" (blur)="closeDropdown()">
+              
+              <ul *ngIf="dropdownOpen">
+                <li *ngFor="let option of filteredOptions" (click)="selectOption(option)">
+                  {{ option }}
+                </li>
+              </ul>
+            </div>
+          </td>
+          <td>
+            <div class="dropdown-container">
+              <input placeholder="code groupe initiale" type="text" id="dropdown" [formControl]="dropdownControl" (click)="toggleDropdown()" (input)="filterOptions()" (blur)="closeDropdown()">
+              
+              <ul *ngIf="dropdownOpen">
+                <li *ngFor="let option of filteredOptions" (click)="selectOption(option)">
+                  {{ option }}
+                </li>
+              </ul>
+            </div>
+          </td>
+          <td>
+            <div class="dropdown-container">
+              <input placeholder="code groupe initiale" type="text" id="dropdown" [formControl]="dropdownControl" (click)="toggleDropdown()" (input)="filterOptions()" (blur)="closeDropdown()">
+              
+              <ul *ngIf="dropdownOpen">
+                <li *ngFor="let option of filteredOptions" (click)="selectOption(option)">
+                  {{ option }}
+                </li>
+              </ul>
+            </div>
+          </td>
+          <td></td>
+        </tr>
+        <tr>
+            <td class="action-btn">  <button>
+                <i class="icon icon-plus"></i>
+              </button></td>
+          <td>2</td>
+          <td>9911</td>
+          <td>528</td>
+          <td>9911</td>
+          <td>991</td>
+          <td></td>
+        </tr>
+        <tr>
+            <td class="action-btn">  <button>
+                <i class="icon icon-trash"></i>
+              </button></td>
+          <td>3</td>
+          <td>9911</td>
+          <td>421</td>
+          <td>9911</td>
+          <td>999</td>
+          <td>LOTIRAP</td>
+        </tr>
+        <tr>
+            <td class="action-btn">   <button>
+                <i class="icon icon-mute"></i>
+              </button>
+            </td>
+          <td>4</td>
+          <td>9911</td>
+          <td>001</td>
+          <td>9911</td>
+          <td>099</td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
