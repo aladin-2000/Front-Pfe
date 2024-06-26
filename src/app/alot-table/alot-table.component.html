@@ -5,7 +5,7 @@
     
     
    
-    </div>
+    <!-- </div>
     <table>
       <thead>
         <tr>
@@ -106,6 +106,34 @@
           <td></td>
         </tr>
       </tbody>
+    </table> -->
+    <table>
+      <thead>
+        <tr>
+          <th class ="action-btn"></th>
+          <th></th>
+          <th>Goupe Initial</th>
+          <th>Portef. Initial</th>
+          <th>Groupe Final</th>
+          <th>Portef. Final</th>
+          <th>Code du Lot</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td *ngFor="let control of dropdownControls; let i = index">
+            <div class="dropdown-container">
+              <input type="text" [id]="'dropdown' + i" [formControl]="control" (click)="toggleDropdown(i)" (input)="filterOptions(i)" (blur)="closeDropdown(i)" placeholder="Type to search...">
+              <ul *ngIf="dropdownOpen[i]">
+                <li *ngFor="let option of filteredOptions[i]" (click)="selectOption(i, option)">
+                  {{ option }}
+                </li>
+              </ul>
+            </div>
+          </td>
+        </tr>
+      </tbody>
     </table>
+    
   </div>
   
