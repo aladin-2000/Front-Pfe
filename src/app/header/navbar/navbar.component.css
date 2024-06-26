@@ -20,4 +20,25 @@
   .nav-bar li:hover {
     background-color: #333;
   }
-  
+  background-color: #1c1c1c;
+  padding: 10px 0;
+}
+
+.nav-bar ul {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-bar li {
+  color: white;
+  cursor: pointer;
+  padding: 10px 20px;
+}
+
+.nav-bar li:hover {
+  background-color: #333;
+}
+

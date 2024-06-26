@@ -1,0 +1,52 @@
+:host {
+    display: block;
+    width: 100%;
+    overflow-x: hidden;
+    background-color: #F5F1F1;
+    margin-bottom: 0px;
+  }
+
+  
+  .mat-grid-list {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 20px;
+    margin-bottom: 0px;
+  }
+
+
+  .input-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+  }
+  
+  label {
+    font-size: 14px;
+    color: #000;
+    margin-bottom: 4px;
+  }
+  
+  input, select {
+    font-size: 16px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    width: 220px;
+  }
+  
+  input:focus, select:focus {
+    border-color: #555;
+    border-width: 2px;
+  }
+  
+  input::placeholder {
+    color: #ccc;
+  }
+  
+ 
+
+  
+  
