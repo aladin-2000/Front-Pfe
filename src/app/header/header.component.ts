@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { TopbarComponent } from '../topbar/topbar.component';
-import { NavbarComponent } from '../navbar/navbar.component';
-
+import { TopbarComponent } from './topbar/topbar.component';
+import { NavbarComponent } from './navbar/navbar.component';
 @Component({
   selector: 'app-header',
   standalone: true,
