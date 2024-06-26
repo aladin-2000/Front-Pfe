@@ -1,0 +1,26 @@
+<div class="login-card">
+    <div class="container">
+        <h1>Se connecter</h1>
+        <form [formGroup]="loginForm">
+            <label for="username">Nom d'utilisateur</label>
+            <div class="user-name">
+                <i class="fas fa-user"></i>
+                <input id="username" type="text" formControlName="username">
+            </div>
+            
+            <label for="password">Mot de passe</label>
+            <div class="pass-word">
+                <i class="fas fa-lock"></i>
+                <input type="text" id="password" formControlName="password">
+            </div>
+        <div class="passwordForgotten">
+            <a href="#">Mot de passe oublié ?</a>
+        </div>
+        <button type="submit" [disabled]="loginForm.invalid">Se connecter</button>    
+        </form>
+        <div class="register">
+            <p>Vous n'avez pas un compte ?</p>
+            <a href="#">Créer un compte</a>
+        </div>
+    </div>
+</div>
