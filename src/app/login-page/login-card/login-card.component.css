@@ -3,24 +3,94 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
-}
-
-.container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
+    padding: 20px;
     background-color: #ffffff;
     border: 1px solid #e1e1e1;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 400px;
+    
 }
-.container h1,.register,.passwordForgotten,button,.user-name,.pass-word{
-    margin:10% ;
+.login-card h1{
+    margin-top: 2rem;
+    color: #000;
 }
-.user-name,.pass-word{
-    margin-left: 0;
+
+.container{
+    margin-top: 3rem;
+    align-self: flex-start;
+    width: 93%;
+}
+
+.container h1,.register,.passwordForgotten,button,.input-container{
+    margin:5% ;
+}
+.input-container{
     display: flex;
-    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2.25px solid rgba(0, 0, 0, 0.25); 
+    width: 90%; /* Ensure the input container takes full width */
+    padding-bottom: 4px; /* Space between the content and the border */
+    margin-bottom: 20px;
+}
+label{
+    margin-left: 1rem;
+    font-size: large;
+}
+input{
+    font-size: large;
+    border: none;
+    outline: none;
+    flex: 2;
+    padding: 10px 0;
+}
+i{
+    color: rgba(0, 0, 0, 0.25);
+    padding: 0 8px;
+}
+input:focus+i,.input-container:hover {
+    border: none;
+    border-bottom: 2.5px solid rgba(0, 0, 0, 0.5);
+    outline: none;
+}
+input:focus {
+    border-bottom-color: rgba(0, 0, 0, 0.5); /* Change bottom border color on focus */
+}
+button{
+    display: block; /* Ensure the button is a block-level element */
+    margin: 0 auto;
+    padding: 0.8rem 3.5rem;
+    border-radius: 9%;
+    background-color: #C70530;
+    color: #ffffff;
+    font-size: x-large;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border: none;
+    box-sizing: border-box;
+}
+.passwordForgotten{
+    align-self: flex-end; /* Align this div to the end of the parent */
+    margin-top: auto; /* Push it to the bottom of the container */
+    width: 100%; /* Make the container as wide as the parent */
+    display: flex; /* Use flexbox */
+    justify-content: flex-end;
+}
+.forgot-link,.create-link{
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.5);
+}
+.forgot-link:hover,.create-link:hover{
+    text-decoration: underline;
+    font-weight: bold;
+}
+.register{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 10%;
+    color: rgba(0, 0, 0, 0.5);
+}
+.create-link{
+    margin-top: 10%;
 }
