@@ -1,139 +1,49 @@
-<div class="table-container">
-    <h3>Liste de portefeuilles dans ce lot</h3>
-    <div class="table-actions">
-      
-    
-    
-   
-    <!-- </div>
-    <table>
-      <thead>
-        <tr>
-          <th class ="action-btn"></th>
-          <th></th>
-          <th>Goupe Initial</th>
-          <th>Portef. Initial</th>
-          <th>Groupe Final</th>
-          <th>Portef. Final</th>
-          <th>Code du Lot</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="action-btn"><button>
-            <i class="icon icon-arrow-up"></i>
-          </button></td>
-          <td>1</td>
-          <td>
-            <div class="dropdown-container">
-              <input placeholder="code groupe initiale" type="text" id="dropdown" [formControl]="dropdownControl" (click)="toggleDropdown()" (input)="filterOptions()" (blur)="closeDropdown()">
-              
-              <ul *ngIf="dropdownOpen">
-                <li *ngFor="let option of filteredOptions" (click)="selectOption(option)">
-                  {{ option }}
-                </li>
-              </ul>
-            </div>
-          </td>
-          
-          <td>
-            <div class="dropdown-container">
-              <input placeholder="code groupe initiale" type="text" id="dropdown" [formControl]="dropdownControl" (click)="toggleDropdown()" (input)="filterOptions()" (blur)="closeDropdown()">
-              
-              <ul *ngIf="dropdownOpen">
-                <li *ngFor="let option of filteredOptions" (click)="selectOption(option)">
-                  {{ option }}
-                </li>
-              </ul>
-            </div>
-          </td>
-          <td>
-            <div class="dropdown-container">
-              <input placeholder="code groupe initiale" type="text" id="dropdown" [formControl]="dropdownControl" (click)="toggleDropdown()" (input)="filterOptions()" (blur)="closeDropdown()">
-              
-              <ul *ngIf="dropdownOpen">
-                <li *ngFor="let option of filteredOptions" (click)="selectOption(option)">
-                  {{ option }}
-                </li>
-              </ul>
-            </div>
-          </td>
-          <td>
-            <div class="dropdown-container">
-              <input placeholder="code groupe initiale" type="text" id="dropdown" [formControl]="dropdownControl" (click)="toggleDropdown()" (input)="filterOptions()" (blur)="closeDropdown()">
-              
-              <ul *ngIf="dropdownOpen">
-                <li *ngFor="let option of filteredOptions" (click)="selectOption(option)">
-                  {{ option }}
-                </li>
-              </ul>
-            </div>
-          </td>
-          <td></td>
-        </tr>
-        <tr>
-            <td class="action-btn">  <button>
-                <i class="icon icon-plus"></i>
-              </button></td>
-          <td>2</td>
-          <td>9911</td>
-          <td>528</td>
-          <td>9911</td>
-          <td>991</td>
-          <td></td>
-        </tr>
-        <tr>
-            <td class="action-btn">  <button>
-                <i class="icon icon-trash"></i>
-              </button></td>
-          <td>3</td>
-          <td>9911</td>
-          <td>421</td>
-          <td>9911</td>
-          <td>999</td>
-          <td>LOTIRAP</td>
-        </tr>
-        <tr>
-            <td class="action-btn">   <button>
-                <i class="icon icon-mute"></i>
-              </button>
-            </td>
-          <td>4</td>
-          <td>9911</td>
-          <td>001</td>
-          <td>9911</td>
-          <td>099</td>
-          <td></td>
-        </tr>
-      </tbody>
-    </table> -->
-    <table>
-      <thead>
-        <tr>
-          <th class ="action-btn"></th>
-          <th></th>
-          <th>Goupe Initial</th>
-          <th>Portef. Initial</th>
-          <th>Groupe Final</th>
-          <th>Portef. Final</th>
-          <th>Code du Lot</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td *ngFor="let control of dropdownControls; let i = index">
-            <div class="dropdown-container">
-              <input type="text" [id]="'dropdown' + i" [formControl]="control" (click)="toggleDropdown(i)" (input)="filterOptions(i)" (blur)="closeDropdown(i)" placeholder="Type to search...">
-              <ul *ngIf="dropdownOpen[i]">
-                <li *ngFor="let option of filteredOptions[i]" (click)="selectOption(i, option)">
-                  {{ option }}
-                </li>
-              </ul>
-            </div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    
-  </div>
-  
+<table mat-table [dataSource]="dataSource">
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="No">
+    <th mat-header-cell *matHeaderCellDef> Numéro </th>
+    <td mat-cell *matCellDef="let element"> {{ element.No }} </td>
+  </ng-container>
+
+  <!-- Groupe Initial Column -->
+  <ng-container matColumnDef="grpInit">
+    <th mat-header-cell *matHeaderCellDef> Groupe Initial </th>
+    <td mat-cell *matCellDef="let element"> {{ element.grpInit }} </td>
+  </ng-container>
+
+  <!-- Portefeuille Initial Column -->
+  <ng-container matColumnDef="prtfInit">
+    <th mat-header-cell *matHeaderCellDef> Portef. Initial </th>
+    <td mat-cell *matCellDef="let element"> {{ element.prtfInit }} </td>
+  </ng-container>
+
+  <!-- Groupe Final Column -->
+  <ng-container matColumnDef="grpFin">
+    <th mat-header-cell *matHeaderCellDef> Groupe Final </th>
+    <td mat-cell *matCellDef="let element"> {{ element.grpFin }} </td>
+  </ng-container>
+
+  <!-- Portefeuille Final Column -->
+  <ng-container matColumnDef="prtfFin">
+    <th mat-header-cell *matHeaderCellDef> Portef. Final </th>
+    <td mat-cell *matCellDef="let element"> {{ element.prtfFin }} </td>
+  </ng-container>
+
+  <!-- Code du Lot Column -->
+  <ng-container matColumnDef="codeLot">
+    <th mat-header-cell *matHeaderCellDef> Code du Lot </th>
+    <td mat-cell *matCellDef="let element"> {{ element.codeLot }} </td>
+  </ng-container>
+
+  <!-- Header Row -->
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+
+  <!-- Row Data -->
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+</table>
+<mat-paginator [pageSizeOptions]="[5, 10, 20]"
+  showFirstLastButtons
+  aria-label="NB-Afficher">
+</mat-paginator>

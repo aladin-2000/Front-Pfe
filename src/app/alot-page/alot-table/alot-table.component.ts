@@ -1,103 +1,41 @@
-// import { Component, OnInit } from '@angular/core';
-// import { FormControl, ReactiveFormsModule } from '@angular/forms';
-// import { CommonModule } from '@angular/common';
+import { AfterViewInit, Component, ViewChild } from "@angular/core";
+import { MatPaginator,MatPaginatorModule } from "@angular/material/paginator";
+import {MatTableDataSource,MatTableModule} from "@angular/material/table";
 
-// @Component({
-//   selector: 'app-alot-table',
-//   standalone: true,
-//   imports: [CommonModule, ReactiveFormsModule],
-//   templateUrl: './alot-table.component.html',
-//   styleUrl: './alot-table.component.css'
-// })
-// export class AlotTableComponent implements OnInit {
-//   dropdownControl = new FormControl('');
-//   options: string[] = ['Option 1', 'Option 2', 'Option 3', 'Option 4', 'Another Option'];
-//   filteredOptions: string[] = [];
-//   dropdownOpen: boolean = false;
-
-//   ngOnInit() {
-//     this.filteredOptions = this.options;
-//     this.dropdownControl.valueChanges.subscribe(() => {
-//       this.filterOptions();
-//     });
-//   }
-
-//   filterOptions() {
-//     const filterValue = this.dropdownControl.value ? this.dropdownControl.value.toLowerCase() : '';
-//     this.filteredOptions = this.options.filter(option =>
-//       option.toLowerCase().includes(filterValue)
-//     );
-//   }
-
-//   selectOption(option: string) {
-//     this.dropdownControl.setValue(option);
-//     this.dropdownOpen = false;
-//   }
-
-//   toggleDropdown() {
-//     this.dropdownOpen = !this.dropdownOpen;
-//     this.filterOptions();  // Ensure options are filtered when dropdown opens
-//   }
-
-//   closeDropdown() {
-//     // Delay closing to allow click event to register on the option
-//     setTimeout(() => {
-//       this.dropdownOpen = false;
-//     }, 200);
-//   }
-// }
-
-import { Component, OnInit } from '@angular/core';
-import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
+export interface LotPtf {
+  No:number
+  grpInit : number
+  prtfInit : number
+  grpFin: number
+  prtfFin:number
+  codeLot:string
+}
+const ALOT_TABLE_STATIC_DATA: LotPtf[] = [
+  { No:0, grpInit: 0, prtfInit: 109, grpFin: 109, prtfFin: 200, codeLot: "LOTSKO" },
+  { No:1,grpInit: 0, prtfInit: 109, grpFin: 109, prtfFin: 200, codeLot: "LOTSKO" },
+  { No:2,grpInit: 0, prtfInit: 109, grpFin: 109, prtfFin: 200, codeLot: "LOTSKO" },
+  { No:3,grpInit: 0, prtfInit: 109, grpFin: 109, prtfFin: 200, codeLot: "LOTSKO" },
+  { No:4,grpInit: 0, prtfInit: 109, grpFin: 109, prtfFin: 200, codeLot: "LOTSKO" },
+  { No:5,grpInit: 0, prtfInit: 109, grpFin: 109, prtfFin: 200, codeLot: "LOTSKO" },
+  { No:6,grpInit: 0, prtfInit: 109, grpFin: 109, prtfFin: 200, codeLot: "LOTSKO" },
+  { No:7,grpInit: 0, prtfInit: 109, grpFin: 109, prtfFin: 200, codeLot: "LOTSKO" },
+  { No:8,grpInit: 0, prtfInit: 109, grpFin: 109, prtfFin: 200, codeLot: "LOTSKO" },
+  { No:9,grpInit: 0, prtfInit: 109, grpFin: 109, prtfFin: 200, codeLot: "LOTSKO" },
+];
 
 @Component({
-  selector: 'app-alot-table',
-  standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
-  templateUrl: './alot-table.component.html',
-  styleUrls: ['./alot-table.component.css']
-})
-export class AlotTableComponent implements OnInit {
-  dropdownControls: FormControl[] = [];
-  options: string[] = ['Option 1', 'Option 2', 'Option 3', 'Option 4', 'Another Option'];
-  filteredOptions: string[][] = [];
-  dropdownOpen: boolean[] = [];
-
-  ngOnInit() {
-    for (let i = 0; i < 3; i++) { // assuming 3 columns, adjust as needed
-      this.dropdownControls.push(new FormControl(''));
-      this.filteredOptions.push(this.options);
-      this.dropdownOpen.push(false);
-
-      this.dropdownControls[i].valueChanges.subscribe(() => {
-        this.filterOptions(i);
-      });
-    }
+    selector: 'app-alot-table',
+    standalone: true,
+    imports: [MatTableModule,MatPaginatorModule],
+    templateUrl: './alot-table.component.html',
+    styleUrl: './alot-table.component.css'
+ })
+ export class AlotTableComponent implements AfterViewInit {
+  displayedColumns: string[]=['No','grpInit', 'prtfInit', 'grpFin','prtfFin','codeLot']
+  dataSource=new MatTableDataSource<LotPtf>(ALOT_TABLE_STATIC_DATA);
+  @ViewChild(MatPaginator)
+  paginator!: MatPaginator;
+  ngAfterViewInit(): void {
+      this.dataSource.paginator=this.paginator;
   }
-
-  filterOptions(index: number) {
-    const filterValue = this.dropdownControls[index].value ? this.dropdownControls[index].value.toLowerCase() : '';
-    this.filteredOptions[index] = this.options.filter(option =>
-      option.toLowerCase().includes(filterValue)
-    );
-  }
-
-  selectOption(index: number, option: string) {
-    this.dropdownControls[index].setValue(option);
-    this.dropdownOpen[index] = false;
-  }
-
-  toggleDropdown(index: number) {
-    this.dropdownOpen[index] = !this.dropdownOpen[index];
-    this.filterOptions(index);  // Ensure options are filtered when dropdown opens
-  }
-
-  closeDropdown(index: number) {
-    // Delay closing to allow click event to register on the option
-    setTimeout(() => {
-      this.dropdownOpen[index] = false;
-    }, 200);
-  }
-}
-
+ }

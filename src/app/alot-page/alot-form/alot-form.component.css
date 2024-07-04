@@ -1,52 +1,85 @@
 :host {
-    display: block;
-    width: 100%;
-    overflow-x: hidden;
-    background-color: #F5F1F1;
-    margin-bottom: 0px;
-  }
+  display: block;
+  width: 100%;
+  overflow-x: hidden;
+  background-color: #F5F1F1;
+  margin-bottom: 0px;
+}
 
-  
-  .mat-grid-list {
-    width: 90%;
-    margin-left: 5%;
-    margin-right: 5%;
-    margin-top: 20px;
-    margin-bottom: 0px;
-  }
+.mat-grid-list {
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 20px;
+  margin-bottom: 0px;
+}
 
+.mat-grid-tile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-  .input-container {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 16px;
-  }
-  
-  label {
-    font-size: 14px;
-    color: #000;
-    margin-bottom: 4px;
-  }
-  
-  input, select {
-    font-size: 16px;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    outline: none;
-    width: 220px;
-  }
-  
-  input:focus, select:focus {
-    border-color: #555;
-    border-width: 2px;
-  }
-  
-  input::placeholder {
-    color: #ccc;
-  }
-  
- 
+.input-container {
+  display: flex;
+  flex-direction: column;
+  width: 90%; /* Ensure the container takes full width of the tile */
+  box-sizing: border-box;
+  padding: 10px; /* Optional: add some padding */
+}
 
+label {
+  font-size: 14px;
+  color: #000;
+  margin-bottom: 4px;
+}
+
+input, select {
+  font-size: 16px;
+  padding: 10px; /* Adjust padding for uniform look */
+  border:none;
+  border-radius: 4px;
+  outline: none;
+  width: 100%; /* Ensure inputs/selects take full width */
+  box-sizing: border-box;
+}
+input:hover, select:hover{
+  border: 1px solid #ccc;
+  border-width: 2px; 
+}
+input:focus, select:focus {
+  border: 1px solid;
+  border-color: #555;
+  border-width: 2px;
+}
+
+input::placeholder {
+  color: #ccc;
+}
+
+.search-button{
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  color: #555;
+  background-color: white;
+  font-size: medium;
+  font-weight:500;
+  border: none;
+  margin: 2%;
+  padding: 10px 20px;
+  border-radius: 9%;
+  letter-spacing: 1px;
   
-  
+}
+.search-button:hover{
+  color: white;
+  background-color: #555;
+  font-weight: bold;
+}
+mat-icon{
+  margin-top: 7%;
+  margin-right: 7%;
+}
