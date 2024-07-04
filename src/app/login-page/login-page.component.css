@@ -1,4 +1,6 @@
 .login-page{
+    min-height: 100vh;
+    width: 100%;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -8,3 +10,6 @@
     background-position: center;
     background-repeat: no-repeat;
 }
+.footer {
+    width: 100%; /* Make sure the footer takes the full width of the page */
+  }
