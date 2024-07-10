@@ -1,26 +1,28 @@
 <div class="login-card">
+    
+    <h1>Se connecter</h1>
     <div class="container">
-        <h1>Se connecter</h1>
         <form [formGroup]="loginForm">
             <label for="username">Nom d'utilisateur</label>
-            <div class="user-name">
+            <div class="input-container">
                 <i class="fas fa-user"></i>
-                <input id="username" type="text" formControlName="username">
+                <input id="username" type="text" formControlName="username" placeholder="Saisir votre nom d'utilisateur">
             </div>
             
             <label for="password">Mot de passe</label>
-            <div class="pass-word">
+            <div class="input-container">
                 <i class="fas fa-lock"></i>
-                <input type="text" id="password" formControlName="password">
+                <input type="text" id="password" formControlName="password" placeholder="Saisir votre mot de passe">
             </div>
-        <div class="passwordForgotten">
-            <a href="#">Mot de passe oublié ?</a>
-        </div>
-        <button type="submit" [disabled]="loginForm.invalid">Se connecter</button>    
+            <div class="passwordForgotten">
+                <a href="#" class="forgot-link">Mot de passe oublié ?</a>
+            </div>
+            <button type="submit" [disabled]="loginForm.invalid">Se connecter</button>    
         </form>
+    </div>
         <div class="register">
             <p>Vous n'avez pas un compte ?</p>
-            <a href="#">Créer un compte</a>
+            <a href="#" class="create-link">Créer un compte</a>
         </div>
-    </div>
+    
 </div>
