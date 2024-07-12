@@ -1,7 +1,13 @@
-table{
+/*.tabs-group{
   width: 100%;
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+  background-color: white;
 }
-.mat-row{
-  color: #CD002E;
-  margin: 20PX;
+
+.tab-element{
+  color: black;
+  background-color: black;
 }
+*/

@@ -1,0 +1,66 @@
+@use '@angular/material' as mat;
+@include mat.core();
+
+$black-67-opacity: rgba(0, 0, 0, 0.67);
+$black-77-opacity: rgba(0, 0, 0, 0.77);
+$black-80-opacity: rgba(0, 0, 0, 0.80);
+$black-87-opacity: rgba(0, 0, 0, 0.87);
+$black-95-opacity: rgba(0, 0, 0, 0.95);
+
+
+
+$custom-grey-palette: (
+  50: #f5f1f1,
+  100: #f5f1f1,
+  200: #f5f1f1,
+  300: #F3F5F1,
+  400: #F3F5F1,
+  500: #F3F5F1,
+  600: #F3F5F1,
+  700: #F1F5F5,
+  800: #F1F5F5,
+  900: #F1F5F5,
+  A100: #F1F5F5,
+  A200: #F3F1F5,
+  A400: #F3F1F5,
+  A700: #F3F1F5,
+  contrast: (
+    50: $black-67-opacity,
+    100: $black-67-opacity,
+    200: $black-67-opacity,
+    300: $black-77-opacity,
+    400: $black-77-opacity,
+    500: $black-77-opacity,
+    600: $black-80-opacity,
+    700: $black-80-opacity,
+    800: $black-87-opacity,
+    900: $black-87-opacity,
+    A100: $black-87-opacity,
+    A200: $black-95-opacity,
+    A400: $black-95-opacity,
+    A700: $black-95-opacity,
+  )
+);
+
+
+
+$my-primary: mat.define-palette(mat.$red-palette,A700);
+$my-accent:mat.define-palette($custom-grey-palette);
+$my-warning: mat.define-palette(mat.$red-palette);
+
+
+$typography: mat.define-typography-config(
+  $font-family: 'Inter, sans-serif',
+);
+
+$my-theme: mat.define-light-theme((
+    color:(
+        primary:$my-primary,
+        accent:$my-accent,
+        warning:$my-warning
+    ),
+    typography:$typography,
+    density: 0,
+));
+
+@include mat.all-component-themes($my-theme);
