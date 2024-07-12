@@ -1,0 +1,50 @@
+.dashboard {
+    display: flex;
+    gap: 20px;
+    justify-content: space-around;
+    margin: 20px;
+  }
+   
+  .card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    text-align: center;
+    width: 25%;
+    height: 150px;
+    
+  }
+   
+  .card-title {
+    font-size: 1.2em;
+    color: #000;
+    margin-bottom: 10px;
+    line-height: 1;
+  }
+   
+  .card-value {
+    font-size: 2em;
+    font-weight: bold;
+    color: #007bff; /* Default color, can be changed individually */
+    line-height: 1.5;
+  }
+   
+  .card-subtext {
+    font-size: 0.9em;
+    color: grey;
+  
+  }
+   
+  /* Specific styles for each card */
+  .card:nth-child(1) .card-value {
+    color: #007bff; /* Blue */
+  }
+   
+  .card:nth-child(2) .card-value {
+    color: #007bff; /* Blue */
+  }
+   
+  .card:nth-child(3) .card-value {
+    color: #dc3545; /* Red */
+  }

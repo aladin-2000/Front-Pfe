@@ -60,3 +60,7 @@
     color: #000;
   }
   
+
+  .focus i:hover{
+    color: rgb(255, 0, 64);
+  }
