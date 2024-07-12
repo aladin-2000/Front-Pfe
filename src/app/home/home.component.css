@@ -1,4 +1,33 @@
-.content {
+.content-initial {
     flex: 1;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 3%;
+    margin-bottom: 1%;
+  }
+
+  .content{
+    flex: 1;
+  
   }
   
+
+  .chart-container {
+    padding: 20px; /* Optionnel : pour ajouter de l'espace autour du graphique */
+    background-color: white; /* Optionnel : pour un fond blanc */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Ombre */
+    border-radius: 10px; /* Optionnel : pour des coins arrondis */
+    margin: 20px; /* Optionnel : pour ajouter de l'espace autour du conteneur */
+    width: 40%;
+  }
+  app-first-chart{
+    width: 100%;
+    margin: 0%;
+    padding: 0;
+  } 
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
