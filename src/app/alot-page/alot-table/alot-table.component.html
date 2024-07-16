@@ -2,11 +2,27 @@
   <!-- First Tab -->
   <mat-tab label="Portefeuilles Existants dans ce Lot">
     <table mat-table [dataSource]="dataSource" class="lots-table">
+
+
+
+      <!--Column of the buttons of selection-->
+      <ng-container matColumnDef="Select">
+        <th mat-header-cell *matHeaderCellDef style="font-weight: bold;"><mat-checkbox (change)="checkAll()" [checked]="allChecked"></mat-checkbox></th>
+        <td mat-cell *matCellDef="let element"
+          [ngStyle]="{ 'background-color': element.checked? '#FCFCFC' : 'white' }">
+          <mat-checkbox [checked]="element.checked" (change)="checkItem(element.No)"></mat-checkbox>
+        </td>
+      </ng-container>
+
+
+
+
+
       <!-- Position Column -->
       <ng-container matColumnDef="No">
         <th mat-header-cell *matHeaderCellDef style="font-weight: bold;">Numéro</th>
         <td mat-cell *matCellDef="let element"
-          [ngStyle]="{ 'background-color': element.No % 2 === 0 ? '#FCFCFC' : 'white' }">
+          [ngStyle]="{ 'background-color': element.checked ? '#FCFCFC' : 'white' }">
           {{ element.No }}
         </td>
       </ng-container>
@@ -15,8 +31,9 @@
       <ng-container matColumnDef="grpInit">
         <th mat-header-cell *matHeaderCellDef style="font-weight: bold;">Groupe Initial</th>
         <td mat-cell *matCellDef="let element"
-          [ngStyle]="{ 'background-color': element.No % 2 === 0 ? '#FCFCFC' : 'white' }">
+          [ngStyle]="{ 'background-color': element.checked ? '#FCFCFC' : 'white' }">
           {{ element.grpInit }}
+          <button mat-icon-button class="icon-button-prtf" style="margin: 5%; "><i class="fa-regular fa-pen-to-square"></i></button>
         </td>
       </ng-container>
 
@@ -24,8 +41,9 @@
       <ng-container matColumnDef="prtfInit">
         <th mat-header-cell *matHeaderCellDef style="font-weight: bold;">Portef. Initial</th>
         <td mat-cell *matCellDef="let element"
-          [ngStyle]="{ 'background-color': element.No % 2 === 0 ? '#FCFCFC' : 'white' }">
+          [ngStyle]="{ 'background-color': element.checked ? '#FCFCFC' : 'white' }">
           {{ element.prtfInit }}
+          <button mat-icon-button class="icon-button-prtf" style="margin: 5%; "><i class="fa-regular fa-pen-to-square"></i></button>
         </td>
       </ng-container>
 
@@ -33,8 +51,9 @@
       <ng-container matColumnDef="grpFin">
         <th mat-header-cell *matHeaderCellDef style="font-weight: bold;">Groupe Final</th>
         <td mat-cell *matCellDef="let element"
-          [ngStyle]="{ 'background-color': element.No % 2 === 0 ? '#FCFCFC' : 'white' }">
+          [ngStyle]="{ 'background-color': element.checked ? '#FCFCFC' : 'white' }">
           {{ element.grpFin }}
+          <button mat-icon-button class="icon-button-prtf" style="margin: 5%; "><i class="fa-regular fa-pen-to-square"></i></button>
         </td>
       </ng-container>
 
@@ -42,8 +61,9 @@
       <ng-container matColumnDef="prtfFin">
         <th mat-header-cell *matHeaderCellDef style="font-weight: bold;">Portef. Final</th>
         <td mat-cell *matCellDef="let element"
-          [ngStyle]="{ 'background-color': element.No % 2 === 0 ? '#FCFCFC' : 'white' }">
+          [ngStyle]="{ 'background-color': element.checked ? '#FCFCFC' : 'white' }">
           {{ element.prtfFin }}
+          <button mat-icon-button class="icon-button-prtf" style="margin: 5%; "><i class="fa-regular fa-pen-to-square"></i></button>
         </td>
       </ng-container>
 
@@ -51,7 +71,7 @@
       <ng-container matColumnDef="codeLot">
         <th mat-header-cell *matHeaderCellDef style="font-weight: bold;">Code du Lot</th>
         <td mat-cell *matCellDef="let element"
-          [ngStyle]="{ 'background-color': element.No % 2 === 0 ? '#FCFCFC' : 'white' }">
+          [ngStyle]="{ 'background-color': element.checked ? '#FCFCFC' : 'white' }">
           {{ element.codeLot }}
         </td>
       </ng-container>
