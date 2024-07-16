@@ -5,7 +5,8 @@ import { routes } from './app.routes';
 import { provideClientHydration } from '@angular/platform-browser';
 import { provideHttpClient, withFetch } from '@angular/common/http';
 import { MatNativeDateModule } from '@angular/material/core';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideAnimations(),provideRouter(routes), provideClientHydration(),provideHttpClient(withFetch()),importProvidersFrom(MatNativeDateModule)]
+  providers: [provideAnimations(),provideAnimationsAsync(), provideRouter(routes), provideClientHydration(),provideHttpClient(withFetch()),importProvidersFrom(MatNativeDateModule)]
 }
