@@ -79,7 +79,7 @@ input::placeholder {
   background-color: #555;
   font-weight: bold;
 }
-mat-icon{
-  margin-top: 7%;
-  margin-right: 7%;
+i{
+  margin-top: 5%;
+  margin-right: 10%;
 }
