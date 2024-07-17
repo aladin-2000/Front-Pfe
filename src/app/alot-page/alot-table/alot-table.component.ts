@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ViewChild } from "@angular/core";
+import { AfterViewInit, Component, QueryList, ViewChild, ViewChildren, viewChildren } from "@angular/core";
 import { MatPaginator, MatPaginatorModule } from "@angular/material/paginator";
 import { MatTableDataSource, MatTableModule } from "@angular/material/table";
 import { MatTabsModule } from "@angular/material/tabs";
@@ -6,6 +6,9 @@ import { CommonModule } from "@angular/common";
 import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
+import { OverlayCardComponent } from './overlay-card/overlay-card.component';
+import { MatDialog } from "@angular/material/dialog";
+
 
 export interface Ptf {
   No: number;
@@ -65,17 +68,43 @@ const ALOT_TABLE_LOT_DATA: LotPrtf[] = [
   styleUrls: ['./alot-table.component.css']
 })
 export class AlotTableComponent implements AfterViewInit {
+
+  //Inject the MatDialog component
+  constructor(private dialog: MatDialog) {}
+  //Method that opens the dialog
+  openOverlay(): void {
+    this.dialog.open(OverlayCardComponent, {
+      disableClose: true, 
+      width: '50%',
+      height: '75%'     
+    });
+  }
+
   displayedColumns: string[] = ['Select', 'No', 'grpInit', 'prtfInit', 'grpFin', 'prtfFin', 'codeLot'];
   lotDisplayedColumns: string[] = ['Select', 'Nb', 'id', 'label']; 
   dataSource = new MatTableDataSource<Ptf>(ALOT_TABLE_STATIC_DATA);
   lotDataSource = new MatTableDataSource<LotPrtf>(ALOT_TABLE_LOT_DATA);
-  
-  @ViewChild('paginator1', { static: false }) paginator1!: MatPaginator;
-  @ViewChild('paginator2', { static: false }) paginator2!: MatPaginator;
+
+  @ViewChild('paginator1', {static:false})  paginator1!:MatPaginator;
+  @ViewChild('paginator2', {static:false})  paginator2!:MatPaginator;
+
+
+  //This method is used to assign a paginator to its correspending data source when triggering change of the window
+  _setDataSource(indexNumber:number):void {
+    setTimeout(() => {
+      if(indexNumber===0){
+        this.dataSource.paginator=this.paginator1;
+      }
+      else{
+        this.lotDataSource.paginator=this.paginator2;
+      }
+      console.log("Paginator 1: ",this.paginator1);
+      console.log("Paginator 2: ",this.paginator2);
+    });
+  }
 
   ngAfterViewInit(): void {
-    this.dataSource.paginator = this.paginator1;
-    this.lotDataSource.paginator = this.paginator2;
+      this.dataSource.paginator=this.paginator1;
   }
 
   allChecked: boolean = false;
