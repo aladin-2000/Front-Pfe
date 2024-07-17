@@ -1,6 +1,8 @@
 <header class="header">
     <div class="logo">
-      <img src="../../assets/Images/Linedata_logo.png" alt="Linedata Logo">
+      <a href="index.html">
+        <img src="../../assets/Images/Linedata_logo.png" alt="Linedata Logo">
+      </a>
     </div>
     <div class="search-bar">
       <input type="text" class="search-input" placeholder="Search" (keyup.enter)="onSearch()" />
@@ -10,8 +12,8 @@
         <i class="fa fa-bars"></i>
       </button>
       <button class="logout-button">Logout</button>
-      <div class="user-profile">
+      <div class="user-profile" (click)="toggleDropdown()">
         <img src="../../assets/Images/user.jpg" alt="User Profile">
       </div>
-    </div>
+      <app-dropdown [isOpen]="isDropdownOpen" (logoutClicked)="onLogout()" (close)="closeDropdown()"></app-dropdown>    </div>
   </header>

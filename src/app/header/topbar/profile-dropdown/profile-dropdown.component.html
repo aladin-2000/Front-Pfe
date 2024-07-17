@@ -1,0 +1,17 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<div class="dropdown" [class.show]="isOpen" (clickOutside)="closeDropdown()">
+  <ul class="dropdown-menu">
+    <li>
+      <i class="fa-solid fa-user"></i>
+      <a href="#">Your profile</a>
+    </li>
+    <li>
+      <i class="fa-solid fa-gear"></i>
+      <a href="#">Settings</a>
+    </li>
+    <li>
+      <i class="fas fa-sign-out-alt menu-icon"></i>
+      <a href="#">Log out</a>
+    </li>
+  </ul>
+</div>
