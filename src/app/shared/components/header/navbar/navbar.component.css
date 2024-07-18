@@ -1,44 +1,61 @@
-.nav-bar {
-    background-color: #1c1c1c;
-    padding: 10px 0;
-  }
-  
-  .nav-bar ul {
-    display: flex;
-    justify-content: space-around;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .nav-bar li {
-    color: white;
-    cursor: pointer;
-    padding: 10px 20px;
-  }
-  
-  .nav-bar li:hover {
-    background-color: #333;
-  
-  background-color: #1c1c1c;
-  padding: 10px 0;
+.navbar {
+  background-color: #333;
+  overflow: hidden;
 }
-
-.nav-bar ul {
-  display: flex;
-  justify-content: space-around;
-  list-style: none;
+ 
+.navbar-nav {
+  list-style-type: none;
   margin: 0;
   padding: 0;
+  display: flex;
 }
-
-.nav-bar li {
+ 
+.nav-item {
+  position: relative;
+}
+ 
+.nav-link {
+  display: block;
   color: white;
-  cursor: pointer;
-  padding: 10px 20px;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  width: 200px; /* Set the width of each button */
 }
-
-.nav-bar li:hover {
+ 
+.nav-link:hover {
+  background-color: #111;
+}
+ 
+.dropdown, .dropdown-submenu {
+  display: none;
+  position: absolute;
+  left: 0;
   background-color: #333;
+  min-width: 200px; /* Set the same width as the button */
 }
-
+ 
+.dropdown-submenu {
+  top: 0;
+  left: 200px; /* Set the position of the submenu */
+}
+ 
+.dropdown a, .dropdown-submenu a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+ 
+.dropdown a:hover, .dropdown-submenu a:hover {
+  background-color: #111;
+}
+ 
+.nav-item:hover > .dropdown {
+  display: block;
+}
+ 
+.dropdown li:hover > .dropdown-submenu {
+  display: block;
+}
