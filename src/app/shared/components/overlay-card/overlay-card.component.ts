@@ -1,10 +1,10 @@
-import {  Component, ViewChild } from '@angular/core';
+import {  AfterViewInit, Component, ViewChild } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatDialogRef } from '@angular/material/dialog';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatTable, MatTableDataSource } from '@angular/material/table';
+import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
+import { MatTable, MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { Wallet } from '../../../core/models/wallet.model';
-import { MatCheckbox } from '@angular/material/checkbox';
+import { MatCheckbox, MatCheckboxModule } from '@angular/material/checkbox';
 
 const WALLET_LIST: Wallet[] = [
   { aidprt: "9911", acdprt: "576", allprt: "000" },
@@ -21,25 +21,24 @@ const WALLET_LIST: Wallet[] = [
 @Component({
   selector: 'app-overlay-card',
   standalone: true,
-  imports: [MatCardModule, MatTable, MatPaginator, MatCheckbox],
+  imports: [MatCardModule, MatTableModule, MatPaginatorModule, MatCheckboxModule],
   templateUrl: './overlay-card.component.html',
   styleUrl: './overlay-card.component.css'
 })
-export class OverlayCardComponent {
+export class OverlayCardComponent implements AfterViewInit{
   constructor(private dialogRef: MatDialogRef<OverlayCardComponent>) { }
   closeOverlay(): void {
+    console.log(this.ptfDataSource.data);
+    console.log('closing the window');
     this.dialogRef.close();
   }
 
   displayedColumns: string[] = ["aidprt", "acdprt", "allprt"];
   ptfDataSource = new MatTableDataSource<Wallet>(WALLET_LIST);
+  
   @ViewChild(MatPaginator) paginator!: MatPaginator;
-
-
-  //TODO: ASSIGN THE PAGINATOR IN ORDER TO RETRIEVE THE DATA 
-  _assignPaginator(): void {
-    setTimeout(() => { this.ptfDataSource.paginator = this.paginator; console.log(this.paginator) })
-
+  ngAfterViewInit(): void {
+      this.ptfDataSource.paginator=this.paginator;
   }
   
 }

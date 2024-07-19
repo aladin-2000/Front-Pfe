@@ -8,6 +8,7 @@
     <mat-card-title>Liste des Portefeuilles</mat-card-title>
   </mat-card-header>
   <mat-card-content>
+    
     <table mat-table [dataSource]="ptfDataSource">
 <!--       <ng-container matColumnDef="select">
         <th mat-header-cell *matHeaderCellDef style="font-weight: bold;">
@@ -32,6 +33,7 @@
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns:displayedColumns"></tr>
     </table>
-<!--     <mat-paginator [length]="ptfDataSource.data.length" [pageSize]="10" [pageSizeOptions]="[5,10,15]" showFirstLastButtons aria-label="values-list-tab"></mat-paginator> -->
+  
+    <mat-paginator [length]="ptfDataSource.data.length" [pageSize]="10" [pageSizeOptions]="[5,10,15]" showFirstLastButtons aria-label="values-list-tab"></mat-paginator>
   </mat-card-content>
 </mat-card>
