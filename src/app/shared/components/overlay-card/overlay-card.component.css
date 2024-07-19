@@ -1,0 +1,19 @@
+.overlay-card {
+  position: relative; /* Allows absolute positioning of child elements */
+}
+
+.close-button-container {
+  position: absolute;
+  top: 10%; /* Adjust this value to fit your design */
+  right: 2.5%; /* Adjust this value to fit your design */
+  z-index: 1; /* Ensure it stays on top */
+}
+
+.close-button {
+  background: transparent; /* Make the button background transparent */
+  border: none; /* Remove border */
+  cursor: pointer; /* Change cursor on hover */
+  font-size: 24px; 
+  padding: 8px;
+  color: #b0b0b0;
+}
