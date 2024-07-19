@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { LoginCardComponent } from '../login-card/views/login-card.component';
+import { LoginCardComponent } from './login-card/views/login-card.component';
 import { HeaderComponent } from '../../../shared/components/header/header.component';
 import { FooterComponent } from '../../../shared/components/footer/footer.component';
 @Component({
