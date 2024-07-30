@@ -23,10 +23,8 @@ export class ALOTFormComponent {
 
  
   aidlot :string = ""
-  createNewLot(aidlot : string){
-    aidlot ="'"+aidlot+"'";
-    this.alotService.CreateNewLot(aidlot).subscribe((data)=>{
-      
+  listAllCreatedWallets(){
+    this.alotService.listOfCreatedWallets().subscribe((data)=>{
       console.log(data)
     })
   }
