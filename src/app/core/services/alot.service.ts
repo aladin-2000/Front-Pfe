@@ -37,19 +37,27 @@ export class AlotService {
 
   Select_initial_wallet(body:any):Observable<Array<Array<Map<string,any>>>>
   {
-    return this.http.post<Array<Array<Map<string,any>>>>(this.BaseURL+"initial-wallet",{"p01_alod_azgrpf_t":"'0003'"});
+    return this.http.post<Array<Array<Map<string,any>>>>(this.BaseURL+"initial-wallet",
+      {"p01_alod_azgrpf_t":"'9911'"});
   }
 
 
   Select_last_wallet(body:any):Observable<Array<Array<Map<string,any>>>>
   {
-    return this.http.post<Array<Array<Map<string,any>>>>(this.BaseURL+"last-wallet",{"p01_alod_azgrps_t":"'0073'","p02_alod_azgrpf_t":"'0022'","p03_alod_azprtf_t":"'002'"});
+    return this.http.post<Array<Array<Map<string,any>>>>(this.BaseURL+"last-wallet",
+      {"p01_alod_azgrpf_t":"'9911'","p02_alod_azprtf_t":"'576'","p03_alod_azprtf_t":"'589'"});
   }
 
 
 //// =================> Fin    Wallet Table 
 
 
+// ===================================> WalletRef
+showAllWalletRef(body:any):Observable<Array<Array<Map<string,any>>>>
+{
+  return this.http.post<Array<Array<Map<string,any>>>>(this.BaseURL+"alor_aidprtr_valuesList_01Service2",{"p01_alot_aidlot":"SS"});  
+}
+// ===================================> WalletRef
 
 // Services ===========================>      Le 23/07/2024
 
