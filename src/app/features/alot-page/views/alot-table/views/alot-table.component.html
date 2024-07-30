@@ -27,7 +27,7 @@
           <td mat-cell *matCellDef="let element"
             [ngStyle]="{ 'background-color': element.checked ? '#FCFCFC' : 'white' }">
             {{ element.grpInit }}
-            <button mat-icon-button class="icon-button-values-list" style="margin: 5%; " (click)="openOverlay()" (click)="Select_initial_wallet_group()"><i
+            <button mat-icon-button class="icon-button-values-list" style="margin: 5%; " (click)="openInitialGroupOverlay()"><i
                 class="fa-regular fa-pen-to-square"></i></button>
           </td>
         </ng-container>
@@ -37,7 +37,7 @@
           <td mat-cell *matCellDef="let element"
             [ngStyle]="{ 'background-color': element.checked ? '#FCFCFC' : 'white' }">
             {{ element.prtfInit }}
-            <button mat-icon-button class="icon-button-values-list" style="margin: 5%; "(click)="openOverlay()"><i
+            <button mat-icon-button class="icon-button-values-list" style="margin: 5%; "(click)="openInitialWalletOverlay()"><i
                 class="fa-regular fa-pen-to-square"></i></button>
           </td>
         </ng-container>
@@ -47,7 +47,7 @@
           <td mat-cell *matCellDef="let element"
             [ngStyle]="{ 'background-color': element.checked ? '#FCFCFC' : 'white' }">
             {{ element.grpFin }}
-            <button mat-icon-button class="icon-button-values-list" style="margin: 5%; "(click)="openOverlay()"  (click)="Select_last_wallet_group(p01_alod_azgrpf_t)"><i
+            <button mat-icon-button class="icon-button-values-list" style="margin: 5%; "(click)="openLastGroupOverlay(p01_alod_azgrpf_t)"><i
                 class="fa-regular fa-pen-to-square"></i></button>
           </td>
         </ng-container>
@@ -57,7 +57,7 @@
           <td mat-cell *matCellDef="let element"
             [ngStyle]="{ 'background-color': element.checked ? '#FCFCFC' : 'white' }">
             {{ element.prtfFin }}
-            <button mat-icon-button class="icon-button-values-list" style="margin: 5%; "(click)="openOverlay()"><i
+            <button mat-icon-button class="icon-button-values-list" style="margin: 5%; "(click)="openLastWalletOverlay()"><i
                 class="fa-regular fa-pen-to-square"></i></button>
           </td>
         </ng-container>
@@ -103,7 +103,7 @@
           <th mat-header-cell *matHeaderCellDef style="font-weight: bold;">Code du Lot</th>
           <td mat-cell *matCellDef="let e" [ngStyle]="{ 'background-color': e.checked ? '#FCFCFC' : 'white' }">
             {{ e.id }}
-            <button mat-icon-button class="icon-button-values-list" style="margin: 2%; "(click)="openOverlay()"><i
+            <button mat-icon-button class="icon-button-values-list" style="margin: 2%; "><i
                 class="fa-regular fa-pen-to-square"></i></button>
           </td>
         </ng-container>
@@ -112,7 +112,7 @@
           <th mat-header-cell *matHeaderCellDef style="font-weight: bold;">Libellé du Lot</th>
           <td mat-cell *matCellDef="let e" [ngStyle]="{ 'background-color': e.checked ? '#FCFCFC' : 'white' }">
             {{ e.label }}
-            <button mat-icon-button class="icon-button-values-list" style="margin: 2%; "(click)="openOverlay()"><i
+            <button mat-icon-button class="icon-button-values-list" style="margin: 2%; "><i
                 class="fa-regular fa-pen-to-square"></i></button>
           </td>
         </ng-container>
