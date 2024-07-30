@@ -16,6 +16,7 @@ export interface Ptf {
   checked: boolean;
 }
 
+
 const ALOT_TABLE_STATIC_DATA: Ptf[] = [
   { No: 1, grpInit: 1000, prtfInit: 109, grpFin: 1000, prtfFin: 200, codeLot: "LOTSKO", checked: false },
   { No: 2, grpInit: 1100, prtfInit: 110, grpFin: 1091, prtfFin: 300, codeLot: "", checked: false },
@@ -85,6 +86,7 @@ export class AlotTableViewModel {
     });
   }
 
+
   //Services to return data to  the view  
   Select_initial_wallet_group(): Observable<{ data: any[]; columns: string[] }> {
     return this.alotService.Select_initial_wallet_group().pipe(
@@ -93,7 +95,8 @@ export class AlotTableViewModel {
         if (data.length > 0) {
           columns = Object.keys(data[0]);
         }
-        return { data, columns };
+        const updatedData=data.map(item=>({...item,isSelected:false}))
+        return { data:updatedData, columns };
       })
     );
   }
@@ -105,7 +108,8 @@ export class AlotTableViewModel {
         if (data.length > 0) {
           columns = Object.keys(data[0]);
         }
-        return { data, columns };
+        const updatedData=data.map(item=>({...item,isSelected:false}))
+        return { data:updatedData, columns };
       })
     );
   }
@@ -116,7 +120,8 @@ export class AlotTableViewModel {
         if (data.length > 0) {
           columns = Object.keys(data[0]);
         }
-        return { data, columns };
+        const updatedData=data.map(item=>({...item,isSelected:false}))
+        return { data:updatedData, columns };
       })
     )
   }
@@ -127,7 +132,8 @@ export class AlotTableViewModel {
         if (data.length > 0) {
           columns = Object.keys(data[0]);
         }
-        return { data, columns };
+        const updatedData=data.map(item=>({...item,isSelected:false}))
+        return { data:updatedData, columns };
       })
     )
   }
