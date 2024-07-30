@@ -2,9 +2,10 @@
   position: relative; /* Allows absolute positioning of child elements */
 }
 
+
 .close-button-container {
   position: absolute;
-  top: 10%; /* Adjust this value to fit your design */
+  top: 1%; /* Adjust this value to fit your design */
   right: 2.5%; /* Adjust this value to fit your design */
   z-index: 1; /* Ensure it stays on top */
 }

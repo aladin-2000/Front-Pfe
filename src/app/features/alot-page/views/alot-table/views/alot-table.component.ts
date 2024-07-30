@@ -9,7 +9,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { OverlayCardComponent } from '../../../../../shared/components/overlay-card/overlay-card.component';
 import { MatDialog } from "@angular/material/dialog";
 import { AlotTableViewModel } from "../viewmodel/alot-table.viewmodel";
-import { AlotService } from "../../../../../core/services/alot.service";
+
 
 
 /*Model: Entities=======> View:présentation =====>ViewModel:logique de l'écran: EVENTS - Services injected http*/ 
@@ -24,25 +24,63 @@ export class AlotTableComponent implements AfterViewInit {
   @ViewChild('paginator1', {static:false})  paginator1!:MatPaginator;
   @ViewChild('paginator2', {static:false})  paginator2!:MatPaginator;
   //Inject the MatDialog component
-  constructor(private dialog: MatDialog, private alotTableViewModel:AlotTableViewModel , private alotService : AlotService) {}
+  constructor(private dialog: MatDialog, private alotTableViewModel:AlotTableViewModel) {}
   dataSource=this.alotTableViewModel.dataSource;
   lotDataSource=this.alotTableViewModel.lotDataSource;
   displayedColumns=this.alotTableViewModel.displayedColumns;
   lotDisplayedColumns=this.alotTableViewModel.lotDisplayedColumns;
+  
+  //these are the displayed columns for each element in the table
+  initialWalletColumns:string[]=[]
+  finalWalletColumns:string[]=[]
+  firstGroupColumns:string[]=[]
+  finalGroupColumns:string[]=[]
 
 
 
 
-
-  //Method that opens the dialog
-  openOverlay(): void {
-    this.dialog.open(OverlayCardComponent, {
-      disableClose: true, 
-      width: '50%',
-      height: '75%'     
+  //Method that opens the dialog overlay
+  openInitialGroupOverlay(): void {
+    this.alotTableViewModel.Select_initial_wallet_group().subscribe(walletData => {
+      this.dialog.open(OverlayCardComponent, {
+        data: {
+          data: walletData.data,
+          displayedColumns: walletData.columns
+        }
+      });
     });
   }
-
+  openLastGroupOverlay(p01_alod_azgrpf_t:string): void {
+    this.alotTableViewModel.Select_last_wallet_group(p01_alod_azgrpf_t).subscribe(walletData => {
+      this.dialog.open(OverlayCardComponent, {
+        data: {
+          data: walletData.data,
+          displayedColumns: walletData.columns
+        }
+      });
+    });
+  }
+  openInitialWalletOverlay(): void {
+    this.alotTableViewModel.selectInitialWallet().subscribe(walletData => {
+      this.dialog.open(OverlayCardComponent, {
+        data: {
+          data: walletData.data,
+          displayedColumns: walletData.columns
+        }
+      });
+    });
+  }
+  openLastWalletOverlay(): void {
+    this.alotTableViewModel.selectLastWallet().subscribe(walletData => {
+      this.dialog.open(OverlayCardComponent, {
+        data: {
+          data: walletData.data,
+          displayedColumns: walletData.columns
+        }
+      });
+    });
+  }
+  
   _setDataSource(indexNumber:number):void{
     this.alotTableViewModel._setDataSource(indexNumber,this.paginator1,this.paginator2)
   }
@@ -83,30 +121,12 @@ export class AlotTableComponent implements AfterViewInit {
   }
 
 
-
-
-
-
-// Our services for AlotTable ==============================================================================
-
-Select_initial_wallet_group(){
-  this.alotService.Select_initial_wallet_group().subscribe((data)=>{
-    console.log(data)
-  })
-}
-
-
-p01_alod_azgrpf_t : string = "'0022'" // pour le momonet baad lezem tetbadel bel valeur taa el group initial 
-Select_last_wallet_group(p01_alod_azgrpf_t : string){
-  this.alotService.Select_last_wallet_group(p01_alod_azgrpf_t).subscribe((data)=>{
-    console.log(data)
-  })
-}
-
-
-
-
-
-
-
+  //Getting the table infos : 
+  Select_initial_wallet_group(){
+    return this.alotTableViewModel.Select_initial_wallet_group();
+  }
+  p01_alod_azgrpf_t: string = "'0022'"
+  Select_last_wallet_group(p01_alod_azgrpf_t:string){
+    this.alotTableViewModel.Select_last_wallet_group(p01_alod_azgrpf_t)
+  }
 }

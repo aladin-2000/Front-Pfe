@@ -2,8 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import {  Wallet } from '../models/wallet.model';
-import { WalletGroup } from '../models/walletGroup.model';
-import { ReturnStatement } from '@angular/compiler';
 
 @Injectable({
   providedIn: 'root'
@@ -22,16 +20,16 @@ export class AlotService {
 
 //// =================> begin    Wallet Table 
 
-  Select_initial_wallet_group():Observable<Array<Array<Map<String,any>>>>
+  Select_initial_wallet_group():Observable<Array<Array<Map<string,any>>>>
   {
-    return this.http.get<Array<Array<Map<String,any>>>>(this.BaseURL+"initial-wallet-group"); // DONE
+    return this.http.get<Array<Array<Map<string,any>>>>(this.BaseURL+"initial-wallet-group"); // DONE
   }
 
 
 
-  Select_last_wallet_group(p01_alod_azgrpf_t : string):Observable<Array<Array<Map<String,any>>>>
+  Select_last_wallet_group(p01_alod_azgrpf_t : string):Observable<Array<Array<Map<string,any>>>>
   {
-    return this.http.post<Array<Array<Map<String,any>>>>(this.BaseURL+"last-wallet-group" , p01_alod_azgrpf_t);
+    return this.http.post<Array<Array<Map<string,any>>>>(this.BaseURL+"last-wallet-group" , p01_alod_azgrpf_t);
   }
 
 
@@ -56,8 +54,8 @@ export class AlotService {
 // Services ===========================>      Le 23/07/2024
 
 
-CreateNewLot(aidlot : string) : Observable<Array<Array<Map<String,any>>>>{
-  return  this.http.post<Array<Array<Map<String,any>>>>(this.BaseURL+"alot0pexi_01Service2", aidlot);
+CreateNewLot(aidlot : string) : Observable<Array<Array<Map<string,any>>>>{
+  return  this.http.post<Array<Array<Map<string,any>>>>(this.BaseURL+"alot0pexi_01Service2", aidlot);
 }
 
 
