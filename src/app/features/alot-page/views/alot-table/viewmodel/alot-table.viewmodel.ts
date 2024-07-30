@@ -110,7 +110,7 @@ export class AlotTableViewModel {
     );
   }
   selectInitialWallet(): Observable<{data:any[];columns:string[]}>{
-    return this.alotService.Select_initial_wallet().pipe(
+    return this.alotService.Select_initial_wallet(1).pipe(
       map((data:any[])=>{
         let columns:string[]=[];
         if (data.length > 0) {
@@ -121,7 +121,7 @@ export class AlotTableViewModel {
     )
   }
   selectLastWallet(): Observable<{data:any[];columns:string[]}>{
-    return this.alotService.Select_last_wallet().pipe(
+    return this.alotService.Select_last_wallet(1).pipe(
       map((data:any[])=>{
         let columns:string[]=[];
         if (data.length > 0) {

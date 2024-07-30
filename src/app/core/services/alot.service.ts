@@ -27,23 +27,23 @@ export class AlotService {
 
 
 
-  Select_last_wallet_group(p01_alod_azgrpf_t : string):Observable<Array<Array<Map<string,any>>>>
+  Select_last_wallet_group(body:any):Observable<Array<Array<Map<string,any>>>>
   {
-    return this.http.post<Array<Array<Map<string,any>>>>(this.BaseURL+"last-wallet-group" , p01_alod_azgrpf_t);
+    return this.http.post<Array<Array<Map<string,any>>>>(this.BaseURL+"last-wallet-group" , {"p01_alod_azgrpf_t":"'0003'","p02_alod_azprtf_t":"'0005'"});
   }
 
 
 
 
-  Select_initial_wallet():Observable<Wallet[]>
+  Select_initial_wallet(body:any):Observable<Array<Array<Map<string,any>>>>
   {
-    return this.http.get<Wallet[]>(this.BaseURL+"initial-wallet");
+    return this.http.post<Array<Array<Map<string,any>>>>(this.BaseURL+"initial-wallet",{"p01_alod_azgrpf_t":"'0003'"});
   }
 
 
-  Select_last_wallet():Observable<Wallet[]>
+  Select_last_wallet(body:any):Observable<Array<Array<Map<string,any>>>>
   {
-    return this.http.get<Wallet[]>(this.BaseURL+"last_wallet");
+    return this.http.post<Array<Array<Map<string,any>>>>(this.BaseURL+"last-wallet",{"p01_alod_azgrps_t":"'0073'","p02_alod_azgrpf_t":"'0022'","p03_alod_azprtf_t":"'002'"});
   }
 
 
