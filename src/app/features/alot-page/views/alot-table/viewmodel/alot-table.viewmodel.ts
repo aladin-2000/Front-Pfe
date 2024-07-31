@@ -17,7 +17,7 @@ export interface Ptf {
 }
 
 
-const ALOT_TABLE_STATIC_DATA: Ptf[] = [
+let ALOT_TABLE_STATIC_DATA: Ptf[] = [
   { No: 1, grpInit: 1000, prtfInit: 109, grpFin: 1000, prtfFin: 200, codeLot: "LOTSKO", checked: false },
   { No: 2, grpInit: 1100, prtfInit: 110, grpFin: 1091, prtfFin: 300, codeLot: "", checked: false },
   { No: 3, grpInit: 2200, prtfInit: 119, grpFin: 1092, prtfFin: 400, codeLot: "LOT_SKO", checked: false },
@@ -137,5 +137,18 @@ export class AlotTableViewModel {
         return { data:updatedData, columns };
       })
     )
+  }
+  //UPDATE THE TABLE VALUES
+  updateGrpInitValue(oldValue:number,newValue:number):void{
+    ALOT_TABLE_STATIC_DATA[oldValue-1].grpInit=newValue
+  }
+  updateGrpFinValue(oldValue:number,newValue:number){
+    ALOT_TABLE_STATIC_DATA[oldValue-1].grpFin=newValue
+  }
+  updatePrtfInitValue(oldValue:number,newValue:number){
+    ALOT_TABLE_STATIC_DATA[oldValue-1].prtfInit=newValue
+  }
+  updatePrtfFinValue(oldValue:number,newValue:number){
+    ALOT_TABLE_STATIC_DATA[oldValue-1].prtfFin=newValue
   }
 }

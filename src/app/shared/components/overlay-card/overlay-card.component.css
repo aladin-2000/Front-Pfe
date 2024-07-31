@@ -18,3 +18,9 @@
   padding: 8px;
   color: #b0b0b0;
 }
+
+.submit-button{
+  width: 100%;
+  margin-top: 5%;
+  margin-bottom:5%
+}

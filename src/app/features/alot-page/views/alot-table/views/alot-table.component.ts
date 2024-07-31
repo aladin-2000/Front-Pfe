@@ -30,57 +30,88 @@ export class AlotTableComponent implements AfterViewInit {
   displayedColumns=this.alotTableViewModel.displayedColumns;
   lotDisplayedColumns=this.alotTableViewModel.lotDisplayedColumns;
   
-  //these are the displayed columns for each element in the table
-  initialWalletColumns:string[]=[]
-  finalWalletColumns:string[]=[]
-  firstGroupColumns:string[]=[]
-  finalGroupColumns:string[]=[]
+  
+  /* TABLE VALUES*/
+  //Initial Group Value
+  initialGrpValue:number=0;
+  //Initial Prtf Value
+  initialPrtfValue:number=0;
+  //Last Group Value
+  lastGrpValue:number=0;
 
 
 
-
-  //Method that opens the dialog overlay
-  openInitialGroupOverlay(): void {
+  //Method that opens the dialog overlay an update the table values
+  openInitialGroupOverlay(elementNum:number): void {
     this.alotTableViewModel.Select_initial_wallet_group().subscribe(walletData => {
       console.log(walletData.data)
-      this.dialog.open(OverlayCardComponent, {
+      const dialogRef=this.dialog.open(OverlayCardComponent, {
         data: {
           data: walletData.data,
           displayedColumns: walletData.columns
         }
       });
+      dialogRef.afterClosed().subscribe(selectedValue=>{
+        if(selectedValue){
+          console.log("the value is in the parent component"+selectedValue)
+          this.alotTableViewModel.updateGrpInitValue(elementNum,selectedValue);
+          this.initialGrpValue=selectedValue
+        }
+      })
     });
   }
-  openLastGroupOverlay(p01_alod_azgrpf_t:string): void {
+  openLastGroupOverlay(p01_alod_azgrpf_t:string,elementNum:number): void {
     this.alotTableViewModel.Select_last_wallet_group(p01_alod_azgrpf_t).subscribe(walletData => {
-      this.dialog.open(OverlayCardComponent, {
+      const dialogRef=this.dialog.open(OverlayCardComponent, {
         data: {
           data: walletData.data,
           displayedColumns: walletData.columns
         }
       });
+      dialogRef.afterClosed().subscribe(selectedValue=>{
+        if(selectedValue){
+          console.log("the value is in the parent component"+selectedValue)
+          this.alotTableViewModel.updateGrpFinValue(elementNum,selectedValue);
+          this.lastGrpValue=selectedValue
+        }
+      }
+      )
     });
   }
-  openInitialWalletOverlay(): void {
+  openInitialWalletOverlay(elementNum:number): void {
     this.alotTableViewModel.selectInitialWallet().subscribe(walletData => {
       console.log(walletData.data[0])
       console.log(walletData.data[0][0])
-      this.dialog.open(OverlayCardComponent, {
+      const dialogRef=this.dialog.open(OverlayCardComponent, {
         data: {
           data: walletData.data,
           displayedColumns: walletData.columns
         }
       });
+      dialogRef.afterClosed().subscribe(selectedValue=>{
+        if(selectedValue){
+          console.log("the value is in the parent component"+selectedValue)
+          this.alotTableViewModel.updatePrtfInitValue(elementNum,selectedValue);
+          this.lastGrpValue=selectedValue
+        }
+      })
     });
   }
-  openLastWalletOverlay(): void {
+  openLastWalletOverlay(elementNum:number): void {
     this.alotTableViewModel.selectLastWallet().subscribe(walletData => {
-      this.dialog.open(OverlayCardComponent, {
+      const dialogRef=this.dialog.open(OverlayCardComponent, {
         data: {
           data: walletData.data,
           displayedColumns: walletData.columns
         }
       });
+      dialogRef.afterClosed().subscribe(selectedValue=>{
+        if(selectedValue){
+          console.log("the value is in the parent component"+selectedValue)
+          this.alotTableViewModel.updatePrtfFinValue(elementNum,selectedValue);
+          this.lastGrpValue=selectedValue
+        }
+      })
     });
   }
   
