@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { BrowserModule } from '@angular/platform-browser';
-import { AppComponent } from './app.component';
+import { AppComponent } from './../../../../app.component';
 
 @Component({
   selector: 'app-navbar',

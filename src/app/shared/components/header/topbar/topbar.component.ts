@@ -22,10 +22,10 @@ import { startWith, map, debounceTime, distinctUntilChanged } from 'rxjs/operato
 })
 export class TopbarComponent implements OnInit{
   isDropdownOpen = false;
+  searchControl = new FormControl();
   options: string[] = ['ALOT', 'AFLH']; 
   filteredOptions!: Observable<string[]>;
-
-  searchControl = new FormControl();
+  showOptions = false;
 
   constructor() {}
 
@@ -42,7 +42,20 @@ export class TopbarComponent implements OnInit{
     const filterValue = value.toLowerCase();
     return this.options.filter(option => option.toLowerCase().startsWith(filterValue));
   }
-  
+
+  selectOption(option: string) {
+    this.searchControl.setValue(option);
+    console.log('Option selected:', option);
+  }
+
+  onFocus() {
+    this.showOptions = true; // Show the options list when the input is focused
+  }
+
+  onBlur() {
+    // Use setTimeout to delay the hide action so that the click event on the option can be processed
+    setTimeout(() => this.showOptions = false, 100); 
+  }
 
   toggleDropdown() {
     console.log('Toggle dropdown method called');

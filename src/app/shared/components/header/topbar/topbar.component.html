@@ -5,14 +5,12 @@
       </a>
     </div>
     <div class="search-bar">
-      <mat-form-field>
-        <input type="text" placeholder="Search" matInput [formControl]="searchControl" [matAutocomplete]="auto">
-        <mat-autocomplete #auto="matAutocomplete">
-          <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-            {{ option }}
-          </mat-option>
-        </mat-autocomplete>
-      </mat-form-field>
+      <input type="text" placeholder="Search" class="search-input" [formControl]="searchControl" (focus)="onFocus()" (blur)="onBlur()">
+      <div class="autocomplete-list" *ngIf="showOptions && (filteredOptions | async)?.length">
+        <div *ngFor="let option of filteredOptions | async" (click)="selectOption(option)">
+          {{ option }}
+        </div>
+      </div>
     </div>
     <div class="user-menu">
       <button class="menu-button">
