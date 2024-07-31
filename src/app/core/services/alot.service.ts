@@ -44,18 +44,18 @@ export class AlotService {
 
 
 // ==============================WalletRef========================> 
-show_All_WalletRef(body:any):Observable<Array<Array<Map<string,any>>>>
+show_All_WalletRef(body:any):Observable<Array<Array<Map<string,any>>>>//hedhy trajja3 object
 {
   return this.http.post<Array<Array<Map<string,any>>>>(this.BaseURL+"alor_aidprtr_valuesList_01Service2",{"p01_alot_aidlot":"SS"});  
 }
-select_WalletRef(body:any):Observable<Array<Array<Map<string,any>>>>
+select_WalletRef(body:any):Observable<Array<Array<Map<string,any>>>>//kif kif trajja3 object
 {
-  return this.http.post<Array<Array<Map<string,any>>>>(this.BaseURL+"alod0plec_05Service2",{"p02_alor_aidprtr":"0001001"});  
+  return this.http.post<Array<Array<Map<string,any>>>>(this.BaseURL+"alod0plec_05Service2",{"p02_alor_aidprtr":"'0001001'"});  
 }
 // ==============================WalletRef=========================> 
 
 // ============================Visualisation=========================> 
-visualiser(body:any):Observable<Array<Array<Map<string,any>>>>
+visualiser(body:any):Observable<Array<Array<Map<string,any>>>>//lezem haja texecuti 9balha khater taamel truncate lel table temporaire alot_vw_04
 {
   return this.http.get<Array<Array<Map<string,any>>>>(this.BaseURL+"alot_del_01Service1");  
 }
@@ -63,12 +63,12 @@ visualiser(body:any):Observable<Array<Array<Map<string,any>>>>
 
 
 // ========================table lot de lot=========================> begin
-listerLesLots(body:any):Observable<Array<Array<Map<string,any>>>> // ValueList
+listerLesLots(body:any):Observable<Array<Array<Map<string,any>>>> // ValueList DONEE
 {
   return this.http.post<Array<Array<Map<string,any>>>>(this.BaseURL+"alol_azdlott_valuesList_01Service2" , {"p01_alot_aidlot":"'lotsko'"});  
 }
 
-addLot(body:any):Observable<Array<Array<Map<string,any>>>> // retourne des portefeuilles qui appartient au lot 
+addLot(body:any):Observable<Array<Array<Map<string,any>>>> // retourne des portefeuilles qui appartient au lot //hedhy temchi ama trajja3 object
 {
    this.http.post<Array<Array<Map<string,any>>>>(this.BaseURL+"alod0plec_03Service4" , {"p01_typtra":"'M'" , "p02_alot_aidlot":"'SS'" , "p03_alot_azdlot":"'MERIEML'"});
    return this.http.post<Array<Array<Map<string,any>>>>(this.BaseURL+"alod0plec_02Service3" , {
@@ -76,14 +76,14 @@ addLot(body:any):Observable<Array<Array<Map<string,any>>>> // retourne des porte
     "p02_alot_azdlot" : "'MERIEML'"
   });  
 }
-supprimerLot(body:any):Observable<Array<Array<Map<string,any>>>> { // retourne le status
+supprimerLot(body:any):Observable<Array<Array<Map<string,any>>>> { // retourne le status//temchi mrigla hedhy
   return this.http.post<Array<Array<Map<string,any>>>>(this.BaseURL+"acdlott_verif_01Service3" , {"aidlot":"'SS'" , "acdlott":"'MERIEML'"});
 
 }
 // ========================table lot de lot=========================> End
 
 // ===================================> WalletRef
-showAllWalletRef(body:any):Observable<Array<Array<Map<string,any>>>>
+showAllWalletRef(body:any):Observable<Array<Array<Map<string,any>>>>//trajja3 object
 {
   return this.http.post<Array<Array<Map<string,any>>>>(this.BaseURL+"alor_aidprtr_valuesList_01Service2",{"p01_alot_aidlot":"SS"});  
 }
@@ -92,7 +92,7 @@ showAllWalletRef(body:any):Observable<Array<Array<Map<string,any>>>>
 // Services ===========================>      Le 23/07/2024
 
 
-listOfCreatedWallets() : Observable<Array<Array<Map<string,any>>>>{
+listOfCreatedWallets() : Observable<Array<Array<Map<string,any>>>>{//DONEEE
   return  this.http.get<Array<Array<Map<string,any>>>>(this.BaseURL+"ListOfCreatedWallets");
 }
 

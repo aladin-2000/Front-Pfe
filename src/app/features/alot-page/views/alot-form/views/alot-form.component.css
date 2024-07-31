@@ -27,59 +27,81 @@
   box-sizing: border-box;
   padding: 10px; /* Optional: add some padding */
 }
-
+.input-search-field{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+.input-search-field input {
+  flex-grow: 1;
+  font-size: 16px;
+  padding: 10px;
+  border: none;
+  border-radius: 4px 0 0 4px;
+  outline: none;
+}
+.search-lot-button {
+  background-color: white;
+  border: none;
+  padding: 0 10px;
+  cursor: pointer;
+  border-radius: 0 4px 4px 0;
+}
+.search-lot-button i {
+  font-size: 16px;
+}
 label {
   font-size: 14px;
   color: #000;
   margin-bottom: 4px;
 }
 
-input, select {
+.input-field, select {
   font-size: 16px;
-  padding: 10px; /* Adjust padding for uniform look */
-  border:none;
+  padding: 10px;
+  border: none;
   border-radius: 4px;
   outline: none;
-  width: 100%; /* Ensure inputs/selects take full width */
+  width: 100%;
   box-sizing: border-box;
 }
-input:hover, select:hover{
+
+.input-field:hover, select:hover,.input-search-field:hover {
   border: 1px solid #ccc;
-  border-width: 2px; 
-}
-input:focus, select:focus {
-  border: 1px solid;
-  border-color: #555;
   border-width: 2px;
 }
 
-input::placeholder {
+.input-field:focus, select:focus, .input-search-field input:focus{
+  border: 1px solid #555;
+  
+  border-width: 2px;
+}
+
+.input-field::placeholder,.input-search-field input::placeholder {
   color: #ccc;
 }
 
-.search-button{
+.search-button {
   display: flex;
-  box-sizing: border-box;
-  flex-direction: row;
   align-items: center;
-  align-content: center;
   color: #555;
   background-color: white;
   font-size: medium;
-  font-weight:500;
+  font-weight: 500;
   border: none;
   margin: 2%;
   padding: 10px 20px;
   border-radius: 9%;
   letter-spacing: 1px;
-  
 }
-.search-button:hover{
+
+.search-button:hover {
   color: white;
   background-color: #555;
   font-weight: bold;
 }
-i{
+
+i {
   margin-top: 5%;
   margin-right: 10%;
 }

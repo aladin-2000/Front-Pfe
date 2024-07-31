@@ -118,7 +118,8 @@ export class AlotTableViewModel {
       map((data:any[])=>{
         let columns:string[]=[];
         if (data.length > 0) {
-          columns = Object.keys(data[0]);
+          columns = Object.keys(data[0][0]);
+          data=data[0]
         }
         const updatedData=data.map(item=>({...item,isSelected:false}))
         return { data:updatedData, columns };
