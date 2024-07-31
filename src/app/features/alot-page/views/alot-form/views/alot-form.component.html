@@ -3,14 +3,18 @@
     <mat-grid-tile>
       <div class="input-container">
         <label for="portfolio-lot-code">Code Lot de Portefeuilles</label>
-        <input id="portfolio-lot-code" [(ngModel)]="aidlot" type="text" placeholder="Saisir le code de lot de portefeuilles" />
-        <button (click)="listAllCreatedWallets()">click</button>
+        <div class="input-search-field">
+          <input id="portfolio-lot-code" [(ngModel)]="aidlot" type="text" placeholder="Saisir le code de lot de portefeuilles" />
+          <button mat-raised-button class="search-lot-button" (click)="listAllCreatedWallets()">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </div>
       </div>
     </mat-grid-tile>
     <mat-grid-tile>
       <div class="input-container">
         <label for="portfolio-nb">Nombre de Portefeuilles dans le Lot</label>
-        <input id="portfolio-nb" type="number" placeholder="Saisir le nombre de portefeuilles dans ce lot" />
+        <input class="input-field" id="portfolio-nb" type="number" placeholder="Saisir le nombre de portefeuilles dans ce lot" />
       </div>
     </mat-grid-tile>
     <mat-grid-tile>
@@ -25,13 +29,13 @@
     <mat-grid-tile>
       <div class="input-container">
         <label for="portfolio-lib">Libellé Lot de Portefeuilles</label>
-        <input id="portfolio-lib" type="text" placeholder="Saisir le libellé du lot correspondant" />
+        <input class="input-field" id="portfolio-lib" type="text" placeholder="Saisir le libellé du lot correspondant" />
       </div>
     </mat-grid-tile>
     <mat-grid-tile>
       <div class="input-container">
         <label for="portfolio-date-cre">Date de Création</label>
-        <input id="portfolio-date-cre" type="date" style="color: #ccc;"/>
+        <input class="input-field" id="portfolio-date-cre" type="date" style="color: #ccc;"/>
       </div>
     </mat-grid-tile>
     <mat-grid-tile>
@@ -46,19 +50,19 @@
     <mat-grid-tile>
       <div class="input-container">
         <label for="portfolio-ref">Portefeuille de Reférence</label>
-        <input id="portfolio-ref" type="text" placeholder="Saisir le code du portefeuille de reférence" />
+        <input class="input-field" id="portfolio-ref" type="text" placeholder="Saisir le code du portefeuille de reférence" />
       </div>
     </mat-grid-tile>
     <mat-grid-tile>
       <div class="input-container">
         <label for="portfolio-date-modif">Date de modification</label>
-        <input id="portfolio-date-modif" type="date" style="color: #ccc;" />
+        <input class="input-field" id="portfolio-date-modif" type="date" style="color: #ccc;" />
       </div>
     </mat-grid-tile>
     <mat-grid-tile>
       <div class="input-container">
         <label for="portfolio-modif">Modifié par</label>
-        <input id="portfolio-modif" type="text" />
+        <input class="input-field" id="portfolio-modif" type="text" />
       </div>
     </mat-grid-tile>
     <mat-grid-tile colspan="3">
@@ -68,4 +72,4 @@
       </button>
     </mat-grid-tile>
   </mat-grid-list>
-</div>
+</div> 
