@@ -63,6 +63,8 @@ export class AlotTableComponent implements AfterViewInit {
   }
   openInitialWalletOverlay(): void {
     this.alotTableViewModel.selectInitialWallet().subscribe(walletData => {
+      console.log(walletData.data[0])
+      console.log(walletData.data[0][0])
       this.dialog.open(OverlayCardComponent, {
         data: {
           data: walletData.data,
