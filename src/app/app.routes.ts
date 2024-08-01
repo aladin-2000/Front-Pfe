@@ -6,13 +6,9 @@ import { RegisterPageComponent } from './features/register-page/views/register-p
 export const routes: Routes = [
     {path:'home',component: HomeComponent},
     {path : 'login', component:LoginPageComponent},
-<<<<<<< HEAD
     {path : 'register', component:RegisterPageComponent},
     {path : 'alot', component:AlotPageComponent},
     { path: '', redirectTo: 'home', pathMatch: 'full' }
-=======
-    {path : 'alot', component:AlotPageComponent},
-    {path : 'home', component:HomeComponent}
->>>>>>> 428e10b (save local changes before merging main)
+
   
 ];

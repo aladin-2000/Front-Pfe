@@ -1,5 +1,8 @@
 <app-header></app-header>
 <app-alot-form></app-alot-form>
-<app-alot-table></app-alot-table>
-<button (click)='getPortefeuilles()'>afficher</button>
-<app-footer></app-footer>
+<div *ngIf="showAdditionalContent">
+  <app-alot-table></app-alot-table>
+  <button (click)="getPortefeuilles()">afficher</button>
+
+</div>
+  <app-footer></app-footer>

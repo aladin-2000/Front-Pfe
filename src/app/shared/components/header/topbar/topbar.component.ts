@@ -7,6 +7,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { startWith, map, debounceTime, distinctUntilChanged } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-topbar',
@@ -27,7 +28,7 @@ export class TopbarComponent implements OnInit{
   filteredOptions!: Observable<string[]>;
   showOptions = false;
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
     this.filteredOptions = this.searchControl.valueChanges.pipe(
@@ -73,8 +74,12 @@ export class TopbarComponent implements OnInit{
   }
 
   onSearch() {
-    // Add your search logic here
-    console.log('Performing search');
+    const searchValue = this.searchControl.value.toUpperCase();
+    if (searchValue === 'ALOT') {
+      this.router.navigate(['/alot']); // Navigate to the 'alot' component
+    } else {
+      console.log('Search value:', searchValue); // Handle other search values
+    }
   }
 
 }
